@@ -97,14 +97,6 @@ def merge(array):
 
 
 def quick(array):
-    def quick_sort_helper(array, first, last):
-        if first < last:
-            split_point = partition(array, first, last)
-            quick_sort_helper(array, first, split_point - 1)
-            quick_sort_helper(array, split_point + 1, last)
-
-    quick_sort_helper(array, 0, len(array) - 1)
-
     def partition(array, first, last):
         pivot_value = array[first]
         left_mark = first + 1
@@ -126,30 +118,39 @@ def quick(array):
         array[first] = array[right_mark]
         array[right_mark] = temp
         return right_mark
+    def quick_sort_helper(array, first, last):
+        if first < last:
+            split_point = partition(array, first, last)
+            quick_sort_helper(array, first, split_point - 1)
+            quick_sort_helper(array, split_point + 1, last)
+
+    quick_sort_helper(array, 0, len(array) - 1)
+
+
 
     return array
 
 
-def radix(array):
-    radix = 10
-    max_length = False
-    tmp, placement = -1, 1
-    while not max_length:
-        max_length = True
-        buckets = [list() for _ in range(radix)]
-        for i in array:
-            tmp = i / placement
-            buckets[int(tmp % radix)].append(i)
-            if max_length and tmp > 0:
-                max_length = False
-        a = 0
-        for b in range(radix):
-            buck = buckets[b]
-            for i in buck:
-                array[a] = i
-                a += 1
-        placement *= radix
-    return array
+# def radix(array):
+#     radix = 10
+#     max_length = False
+#     tmp, placement = -1, 1
+#     while not max_length:
+#         max_length = True
+#         buckets = [list() for _ in range(radix)]
+#         for i in array:
+#             tmp = i / placement
+#             buckets[int(tmp % radix)].append(i)
+#             if max_length and tmp > 0:
+#                 max_length = False
+#         a = 0
+#         for b in range(radix):
+#             buck = buckets[b]
+#             for i in buck:
+#                 array[a] = i
+#                 a += 1
+#         placement *= radix
+#     return array
 
 
 def selection(array):
