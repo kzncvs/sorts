@@ -1,20 +1,20 @@
 def sort_me(sort, array):
     if sort == 'bubble':
-        bubble(array)
+        return bubble(array)
     elif sort == 'heap':
-        heap(array)
+        return heap(array)
     elif sort == 'insertion':
-        insertion(array)
+        return insertion(array)
     elif sort == 'merge':
-        merge(array)
+        return merge(array)
     elif sort == 'quick':
-        quick(array)
+        return quick(array)
     elif sort == 'selection':
-        selection(array)
+        return selection(array)
     elif sort == 'shell':
-        shell(array)
+        return shell(array)
     elif sort == 'python':
-        python(array)
+        return python(array)
 
 
 def bubble(array):
