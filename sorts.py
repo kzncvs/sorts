@@ -122,6 +122,7 @@ def merge(array):
 def quick(array):
     if len(array) > 5000:
         return ' '
+
     def partition(array, first, last):
         pivot_value = array[first]
         left_mark = first + 1
