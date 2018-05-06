@@ -1,3 +1,22 @@
+def sort_me(sort, array):
+    if sort == 'bubble':
+        bubble(array)
+    elif sort == 'heap':
+        heap(array)
+    elif sort == 'insertion':
+        insertion(array)
+    elif sort == 'merge':
+        merge(array)
+    elif sort == 'quick':
+        quick(array)
+    elif sort == 'selection':
+        selection(array)
+    elif sort == 'shell':
+        shell(array)
+    elif sort == 'python':
+        python(array)
+
+
 def bubble(array):
     exchanges = True
     pass_num = len(array) - 1
@@ -118,6 +137,7 @@ def quick(array):
         array[first] = array[right_mark]
         array[right_mark] = temp
         return right_mark
+
     def quick_sort_helper(array, first, last):
         if first < last:
             split_point = partition(array, first, last)
@@ -125,8 +145,6 @@ def quick(array):
             quick_sort_helper(array, split_point + 1, last)
 
     quick_sort_helper(array, 0, len(array) - 1)
-
-
 
     return array
 

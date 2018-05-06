@@ -62,3 +62,14 @@ def make_sorted(length, content):
         for i in range(length):
             newbie.append(start_date + timedelta(days=i))
     return newbie
+
+
+def make_part_sorted(length, content):
+    newbie = []
+    for _ in range(5):
+        newbie = make_array(length, content)
+        start_index = randint(0, length)
+        finish_index = randint(start_index, length)
+        newbie[start_index:finish_index].sort()
+    return newbie
+
