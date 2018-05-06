@@ -77,7 +77,7 @@ def make_sorted(length, content):
 
 def make_partly_sorted(length, content):
     newbie = []
-    for _ in range(50):
+    for _ in range(10):
         newbie = make_array(length, content)
         start_index = randint(0, length - 4)
         newbie[start_index:start_index + 4].sort()
