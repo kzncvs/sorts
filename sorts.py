@@ -15,6 +15,8 @@ def sort_me(sort, array):
         return shell(array)
     elif sort == 'python':
         return python(array)
+    elif sort == 'radix':
+        return radix(array)
 
 
 def bubble(array):
@@ -156,26 +158,26 @@ def quick(array):
     return array
 
 
-# def radix(array):
-#     radix = 10
-#     max_length = False
-#     tmp, placement = -1, 1
-#     while not max_length:
-#         max_length = True
-#         buckets = [list() for _ in range(radix)]
-#         for i in array:
-#             tmp = i / placement
-#             buckets[int(tmp % radix)].append(i)
-#             if max_length and tmp > 0:
-#                 max_length = False
-#         a = 0
-#         for b in range(radix):
-#             buck = buckets[b]
-#             for i in buck:
-#                 array[a] = i
-#                 a += 1
-#         placement *= radix
-#     return array
+def radix(array):
+    radix = 10
+    max_length = False
+    tmp, placement = -1, 1
+    while not max_length:
+        max_length = True
+        buckets = [list() for _ in range(radix)]
+        for i in array:
+            tmp = i / placement
+            buckets[int(tmp % radix)].append(i)
+            if max_length and tmp > 0:
+                max_length = False
+        a = 0
+        for b in range(radix):
+            buck = buckets[b]
+            for i in buck:
+                array[a] = i
+                a += 1
+        placement *= radix
+    return array
 
 
 def selection(array):
