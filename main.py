@@ -6,7 +6,7 @@ import tools
 import sys
 import threading
 
-RUNS_COUNT = 10
+RUNS_COUNT = 5
 data_types = ['byte', 'int', 'string', 'date']
 data_volumes = [5, 50, 500, 5000, 50000, 500000]
 sorting_types = ['bubble', 'heap', 'insertion', 'merge', 'quick', 'selection', 'shell', 'python']
