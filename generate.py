@@ -42,3 +42,23 @@ def make_reverse(length, content):
         for i in range(length):
             newbie.append(start_date - timedelta(days=i))
     return newbie
+
+
+def make_sorted(length, content):
+    newbie = []
+    if content == 'byte':
+        for value in range(0, 10):
+            for i in range(int(length / 10)):
+                newbie.append(value)
+    elif content == 'int':
+        for i in range(length):
+            newbie.append(i)
+    elif content == 'string':
+        for i in range(length):
+            newbie.append(uuid.uuid4().hex)
+        newbie.sort()
+    elif content == 'date':
+        start_date = datetime.date.today()
+        for i in range(length):
+            newbie.append(start_date + timedelta(days=i))
+    return newbie

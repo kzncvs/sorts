@@ -14,15 +14,15 @@ def xlsx_generator():
     workbook = xlsxwriter.Workbook('python.xlsx')
     worksheet_straight = workbook.add_worksheet('straight')
     worksheet_reverse = workbook.add_worksheet('reverse')
+    worksheet_sorted = workbook.add_worksheet('sorted')
     for i in range(len(data_volumes)):
         worksheet_straight.write(0, i + 1, data_volumes[i])
         worksheet_reverse.write(0, i + 1, data_volumes[i])
+        worksheet_sorted.write(i + 1, 0, data_types[i])
     for i in range(len(data_types)):
         worksheet_straight.write(i + 1, 0, data_types[i])
         worksheet_reverse.write(i + 1, 0, data_types[i])
-
-    # data_ty = ""
-    # data_vo = ""
+        worksheet_sorted.write(i + 1, 0, data_types[i])
 
     def time_aver(time_arr):
         kek = 0
@@ -46,6 +46,14 @@ def xlsx_generator():
         finish_time = datetime.datetime.now()
         return finish_time - start_time
 
+    def sort_time_sorted(hop):
+        arr = generate.make_sorted(data_vo, data_ty)
+        print("computing ", data_vo, " ", data_ty, " ", hop)
+        start_time = datetime.datetime.now()
+        sorts.python(arr)
+        finish_time = datetime.datetime.now()
+        return finish_time - start_time
+
     for i in range(len(data_volumes)):
         for j in range(len(data_types)):
             data_ty = data_types[j]
@@ -58,6 +66,10 @@ def xlsx_generator():
             results = pool.map(sort_time_reversed, range(0, 4))
             average = time_aver(results)
             worksheet_reverse.write(j + 1, i + 1, average)
+
+            results = pool.map(sort_time_sorted, range(0, 4))
+            average = time_aver(results)
+            worksheet_sorted.write(j + 1, i + 1, average)
 
     workbook.close()
 
