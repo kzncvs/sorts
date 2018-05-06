@@ -19,7 +19,7 @@ def xlsx_generator():
             for i in range(len(data_volumes)):
                 worksheet.write(0, i + 1, data_volumes[i])
                 for j in range(len(data_types)):
-                    worksheet.write(j + 1, 0, data_types[i])
+                    worksheet.write(j + 1, 0, data_types[j])
                     data_volume = data_volumes[i]
                     data_type = data_types[j]
                     runs_times = []
