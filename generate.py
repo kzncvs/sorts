@@ -5,6 +5,17 @@ import uuid
 from datetime import timedelta
 
 
+def make_me(gen_type, length, content):
+    if gen_type == 'straight':
+        return make_array(length, content)
+    elif gen_type == 'reversed':
+        return make_reversed(length, content)
+    elif gen_type == 'sorted':
+        return make_sorted(length, content)
+    elif gen_type == 'partly_sorted':
+        return make_partly_sorted(length, content)
+
+
 def make_array(length, content):
     newbie = []
     for i in range(length):
@@ -24,7 +35,7 @@ def make_array(length, content):
     return newbie
 
 
-def make_reverse(length, content):
+def make_reversed(length, content):
     newbie = []
     if content == 'byte':
         for value in reversed(range(0, 10)):
@@ -64,7 +75,7 @@ def make_sorted(length, content):
     return newbie
 
 
-def make_part_sorted(length, content):
+def make_partly_sorted(length, content):
     newbie = []
     for _ in range(5):
         newbie = make_array(length, content)
@@ -72,4 +83,3 @@ def make_part_sorted(length, content):
         finish_index = randint(start_index, length)
         newbie[start_index:finish_index].sort()
     return newbie
-
