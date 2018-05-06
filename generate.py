@@ -38,9 +38,8 @@ def make_array(length, content):
 def make_reversed(length, content):
     newbie = []
     if content == 'byte':
-        for value in reversed(range(0, 10)):
-            for i in range(int(length / 10)):
-                newbie.append(value)
+        newbie = make_array(length, content)
+        newbie.sort(reverse=True)
     elif content == 'int':
         for i in range(length):
             newbie.append(length - i)
