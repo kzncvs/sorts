@@ -18,6 +18,8 @@ def sort_me(sort, array):
 
 
 def bubble(array):
+    if len(array) > 5000:
+        return ' '
     exchanges = True
     pass_num = len(array) - 1
     while pass_num > 0 and exchanges:
@@ -69,6 +71,8 @@ def heap(array):
 
 
 def insertion(array):
+    if len(array) > 5000:
+        return ' '
     for index in range(1, len(array)):
         current_value = array[index]
         position = index
@@ -116,6 +120,8 @@ def merge(array):
 
 
 def quick(array):
+    if len(array) > 5000:
+        return ' '
     def partition(array, first, last):
         pivot_value = array[first]
         left_mark = first + 1
@@ -172,6 +178,8 @@ def quick(array):
 
 
 def selection(array):
+    if len(array) > 5000:
+        return ' '
     for k in range(len(array) - 1):
         m = k
         i = k + 1
