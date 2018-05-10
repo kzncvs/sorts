@@ -108,20 +108,20 @@ def make_same_elements(length, content):
 def make_partly_same(length, content):
     newbie = make_array(length, content)
     if content == 'byte':
-        for i in range(length / 2):
-            random_index = randint(0, length)
+        for i in range(length // 2):
+            random_index = randint(0, length - 1)
             newbie[random_index] = 5
     elif content == 'int':
-        for i in range(length / 2):
-            random_index = randint(0, length)
+        for i in range(length // 2):
+            random_index = randint(0, length - 1)
             newbie[random_index] = 1337
     elif content == 'string':
-        for i in range(length / 2):
-            random_index = randint(0, length)
+        for i in range(length // 2):
+            random_index = randint(0, length - 1)
             newbie[random_index] = 'kek'
     elif content == 'date':
         date = datetime.date.today()
-        for i in range(length / 2):
-            random_index = randint(0, length)
+        for i in range(length // 2):
+            random_index = randint(0, length - 1)
             newbie[random_index] = date
     return newbie
