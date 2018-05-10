@@ -14,6 +14,10 @@ def make_me(gen_type, length, content):
         return make_sorted(length, content)
     elif gen_type == 'partly_sorted':
         return make_partly_sorted(length, content)
+    elif gen_type == 'same_elements':
+        return make_same_elements(length, content)
+    elif gen_type == 'partly_same':
+        return make_partly_same(length, content)
 
 
 def make_array(length, content):
@@ -80,4 +84,44 @@ def make_partly_sorted(length, content):
         newbie = make_array(length, content)
         start_index = randint(0, length - 4)
         newbie[start_index:start_index + 4].sort()
+    return newbie
+
+
+def make_same_elements(length, content):
+    newbie = []
+    if content == 'byte':
+        for i in range(length):
+            newbie.append(5)
+    elif content == 'int':
+        for i in range(length):
+            newbie.append(1337)
+    elif content == 'string':
+        for i in range(length):
+            newbie.append('kek')
+    elif content == 'date':
+        date = datetime.date.today()
+        for i in range(length):
+            newbie.append(date)
+    return newbie
+
+
+def make_partly_same(length, content):
+    newbie = make_array(length, content)
+    if content == 'byte':
+        for i in range(length / 2):
+            random_index = randint(0, length)
+            newbie[random_index] = 5
+    elif content == 'int':
+        for i in range(length / 2):
+            random_index = randint(0, length)
+            newbie[random_index] = 1337
+    elif content == 'string':
+        for i in range(length / 2):
+            random_index = randint(0, length)
+            newbie[random_index] = 'kek'
+    elif content == 'date':
+        date = datetime.date.today()
+        for i in range(length / 2):
+            random_index = randint(0, length)
+            newbie[random_index] = date
     return newbie
